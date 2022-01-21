@@ -47,7 +47,7 @@ function calc(operator, a, b) {
 } 
 
 
-console.log( calc('sum', 1, 2) ); 
+console.log( calc('sum', 2, 2) ); 
 console.log( calc('sub', 2, 2) );
 console.log( calc('multi', 1, 2) );
 console.log( calc('div', 1, 0) );
