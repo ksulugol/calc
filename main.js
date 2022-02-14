@@ -15,7 +15,7 @@ function Calc(operation, a, b) {
   } else if (operation in operations) {
     return operations[operation];
   } else {
-    return 'Unknown opearation';
+    return 'Unknown operation';
   }
 }
 
