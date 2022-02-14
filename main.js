@@ -25,8 +25,3 @@ console.log( Calc('multi', 1, 2) );
 console.log( Calc('div', 1, 0) );
 console.log( Calc('rem', 8, 0) );
 console.log( Calc('exp', 2, 2) );
-
-
-
-
-
