@@ -30,13 +30,13 @@ body {
 }
 
 .calc__result {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
     font-size: 96px;
     font-weight: 300;
     line-height: 1;
-    display: flex;
-    justify-content: flex-end;
     align-items: center;
-    margin-bottom: 16px;
 }
 
 .calc__buttons {
@@ -70,12 +70,15 @@ body {
 
 .calc__btn--delete {
     grid-column: span 1;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .calc__btn--zero {
     grid-column: span 3;
 }
 
-.calc__btn--operator {
+.calc__btn--operator,
+.calc__btn--equal {
     background-color: #4B5EFC;
 }
