@@ -12,6 +12,9 @@ let b;
 
 clearButton.addEventListener('click', function clearState() {
   result.innerHTML = '0';
+  operator = null;
+  a = null;
+  b = null;
 })
 
 
@@ -29,6 +32,10 @@ deleteButton.addEventListener('click', function deleteNumber() {
 equalButton.addEventListener('click', function getResult() {
   b = result.innerHTML;
   result.innerHTML = Calc();
+
+  operator = null;
+  a = null;
+  b = null;
 })
 
 // НЕ РАБОТАЕТ! ПОЧЕМУ?
