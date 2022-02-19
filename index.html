@@ -1,17 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Калькулятор</title>
 </head>
 
 <body>
+<div class="calc__wrapper">
+  <div class="calc__result"></div>
 
-  <script src="main.js"></script>
+  <div class="calc__buttons">
+    <button class="calc__btn calc__btn--clear" type="button">C</button>
 
+    <button class="calc__btn calc__btn--backspace" type="button" style="background-image: url(images/backspace.svg);"></button>
+
+    <button class="calc__btn calc__btn--operator" id="div" type="button">÷</button>
+
+    <button class="calc__btn calc__btn--number" type="button">7</button>
+
+    <button class="calc__btn calc__btn--number" type="button">8</button>
+
+    <button class="calc__btn calc__btn--number" type="button">9</button>
+
+    <button class="calc__btn calc__btn--operator" id="multi" type="button">×</button>
+
+    <button class="calc__btn calc__btn--number" type="button">4</button>
+
+    <button class="calc__btn calc__btn--number" type="button">5</button>
+
+    <button class="calc__btn calc__btn--number" type="button">6</button>
+
+    <button class="calc__btn calc__btn--operator" id="sub" type="button">–</button>
+
+    <button class="calc__btn calc__btn--number" type="button">1</button>
+
+    <button class="calc__btn calc__btn--number" type="button">2</button>
+
+    <button class="calc__btn calc__btn--number" type="button">3</button>
+
+    <button class="calc__btn calc__btn--operator" id="sum" type="button">+</button>
+
+    <button class="calc__btn calc__btn--number calc__btn--zero" type="button">0</button>
+
+    <button class="calc__btn calc__btn--equal" type="button">=</button>
+
+  </div>
+</div>
+
+<script src="main.js"></script>
 </body>
 
 </html>
