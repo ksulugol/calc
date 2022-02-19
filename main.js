@@ -1,101 +1,79 @@
 const clearButton = document.querySelector('.calc__btn--clear');
-const deleteButton = document.querySelector('.calc__btn--delete');
+const backspaceButton = document.querySelector('.calc__btn--backspace');
 const equalButton = document.querySelector('.calc__btn--equal');
 const result = document.querySelector('.calc__result');
 let numberButton = document.querySelectorAll('.calc__btn--number');
 let operatorButton = document.querySelectorAll('.calc__btn--operator');
 
-result.innerHTML = '0';
-let operator;
-let a;
-let b;
+result.textContent = '0';
+let operator = null;
+let a = null;
+let b = null;
+
 
 clearButton.addEventListener('click', function clearState() {
-  result.innerHTML = '0';
-  operator = null;
-  a = null;
-  b = null;
+  result.textContent = '0';
 })
 
+backspaceButton.addEventListener('click', function deleteNumber() {
+  let str = result.textContent;
+  let backspaceStr = str.slice(0, -1);
 
-deleteButton.addEventListener('click', function deleteNumber() {
-  let str = result.innerHTML;
-  let newStr = str.slice(0, -1);
-
-  if (newStr) {
-    result.innerHTML = newStr;
+  if (backspaceStr) {
+    result.textContent = backspaceStr;
   } else {
-    result.innerHTML = '0';
+    result.textContent = '0';
   }
 })
 
 equalButton.addEventListener('click', function getResult() {
-  b = result.innerHTML;
-  result.innerHTML = Calc();
+  b = result.textContent;
+  result.textContent = Calc(operator, a, b);
 
-  operator = null;
   a = null;
   b = null;
-})
+  operator = null;
 
-// НЕ РАБОТАЕТ! ПОЧЕМУ?
-// numberButton.addEventListener('click', function addNumber() {
-//   for (let number of numberButton) {
-//     if (result.innerHTML !== '0') {
-//       result.innerHTML += number.innerHTML;
-//     } else {
-//       result.innerHTML = number.innerHTML;
-//     }
-//   }
-// });
+})
 
 for (let number of numberButton) {
   number.onclick = function() {
-    if (result.innerHTML !== '0') {
-      result.innerHTML += number.innerHTML;
+    if (result.textContent !== '0') {
+      result.textContent += number.textContent;
     } else {
-      result.innerHTML = number.innerHTML;
+      result.textContent = number.textContent;
     }
   }
 }
 
 for (let op of operatorButton) {
-  op.onclick = function () {
+  op.onclick = function() {
     operator = op.id;
 
     if (a === null) {
-      a = result.innerHTML;
-      result.innerHTML = '0';
+      a = result.textContent;
+      result.textContent = '0';
     } else if (b === null) {
-      b = result.innerHTML;
+      b = result.textContent;
     }
     console.log (a, b);
   }
 }
 
 function Calc(operator, a, b) {
-  const isNotValidOperand = typeof a !== 'number' || typeof b !== 'number' || isNaN(a) || isNaN(b); 
+  const isValidOperand = isFinite(a) && isFinite(b);
 
   let operations = {
-    'sum' : a + b,
-    'sub' : a - b,
-    'multi' : a * b,
-    'div' : (b !== 0 ? a / b : 'You cannot divide by zero!'),
+    'sum': +a + +b,
+    'sub': a - b,
+    'multi': a * b,
+    'div': a / b,
   }
 
-  if (isNotValidOperand) {
-    return 'Error';
-  } else if (operator in operations) {
+  if (isValidOperand) {
     return operations[operator];
   } else {
-    return 'Unknown operation';
+    return 'Error!'
   }
 }
-
-console.log( Calc('sumi', 2, 2) ); 
-console.log( Calc('sub', 'h', 2) );
-console.log( Calc('multi', 1, 2) );
-console.log( Calc('div', 1, 0) );
-console.log( Calc('rem', 8, 0) );
-console.log( Calc('exp', 2, 2) );
 

@@ -59,7 +59,8 @@ body {
     background-color: rgb(103, 103, 103);
 }
 
-.calc__btn--operator:hover {
+.calc__btn--operator:hover,
+.calc__btn--equal:hover {
     background-color: rgb(107, 171, 220);
 }
 
@@ -68,7 +69,7 @@ body {
     grid-column: span 2;
 }
 
-.calc__btn--delete {
+.calc__btn--backspace {
     grid-column: span 1;
     background-position: center;
     background-repeat: no-repeat;
