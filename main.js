@@ -61,19 +61,14 @@ for (let op of operatorButton) {
 }
 
 function Calc(operator, a, b) {
-  const isValidOperand = isFinite(a) && isFinite(b);
 
   let operations = {
     'sum': +a + +b,
-    'sub': a - b,
-    'multi': a * b,
-    'div': a / b,
+    'sub': +a - +b,
+    'multi': +a * +b,
+    'div': +b === 0 ? "Error!" : +a / +b,
   }
 
-  if (isValidOperand) {
-    return operations[operator];
-  } else {
-    return 'Error!'
-  }
+  return operations[operator];
 }
 
